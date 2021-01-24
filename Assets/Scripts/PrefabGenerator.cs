@@ -6,6 +6,7 @@ public class PrefabGenerator : MonoBehaviour
 {
 
     public GameObject originalObject;
+    public GameObject player;
     public float spawnRange;
     public float interval;
 
@@ -17,7 +18,7 @@ public class PrefabGenerator : MonoBehaviour
     {
         if (PlayerControl.height > lastCloneHeight + spawnRange) {
 
-            float randX = Random.Range(-spawnRange, spawnRange);
+            float randX = player.transform.position.x  + Random.Range(-spawnRange, spawnRange);
             float randY = PlayerControl.height + spawnRange + Random.Range(0, spawnRange);
 
             vector = new Vector2(randX, randY);
@@ -27,3 +28,4 @@ public class PrefabGenerator : MonoBehaviour
         }
     }
 }
+

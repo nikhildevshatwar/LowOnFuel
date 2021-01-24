@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TilingByPosition : MonoBehaviour
 {
-
+    public GameObject player;
     public float scale;
+
     private MeshRenderer mr;
     private Material mat;
 
@@ -17,6 +18,6 @@ public class TilingByPosition : MonoBehaviour
 
     void Update()
     {
-        mat.mainTextureOffset = new Vector2(0, PlayerControl.height *  scale);
+        mat.mainTextureOffset = player.transform.position * scale;
     }
 }
