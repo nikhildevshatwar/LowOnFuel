@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PrefabGenerator : MonoBehaviour
 {
-
+    // Spawns copies of a prefab as the player gets higher in the level
     public GameObject originalObject;
     public GameObject player;
     public float spawnRange;
