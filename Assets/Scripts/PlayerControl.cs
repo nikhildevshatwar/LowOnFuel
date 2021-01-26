@@ -90,7 +90,7 @@ public class PlayerControl : MonoBehaviour
 
     public void DropShielding()
     {
-        weight--;
+        weight-=2;
         setWeight();
         shipParts[0].SetActive(false);
     }
@@ -98,7 +98,7 @@ public class PlayerControl : MonoBehaviour
     public void DropWeapon()
     {
         DisableWeapons();
-        weight--;
+        weight-=2;
         setWeight();
         shipParts[1].SetActive(false);
     }

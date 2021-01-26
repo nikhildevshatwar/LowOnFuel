@@ -1,8 +1,10 @@
 ﻿<Properties StartupConfiguration="{D3F6C314-BA69-E23A-DD71-BD96C16B3F51}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AsteroidMovement.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="19" Column="11" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="10" Column="30" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="93" Column="18" />
+      <File FileName="Assets/Scripts/GameController.cs" />
+      <File FileName="Assets/Scripts/PrefabGenerator.cs" Line="11" Column="1" />
+      <File FileName="Assets/Scripts/AsteroidMovement.cs" Line="3" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

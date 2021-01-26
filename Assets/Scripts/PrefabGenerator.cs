@@ -9,9 +9,23 @@ public class PrefabGenerator : MonoBehaviour
     public GameObject player;
     public float spawnRange;
 
-    private List<GameObject> clones = new List<GameObject>();
+    private List<GameObject> bag = new List<GameObject>();
     private Vector2 vector;
     private float lastCloneHeight = 0;
+
+    public GameObject ChooseObstacle()
+    {
+        if (bag.Count == 0)
+        {
+            bag.AddRange(prefabList);
+        }
+        int index = Random.Range(0, bag.Count);
+        GameObject p = bag[index];
+        bag.RemoveAt(index);
+        return p;
+    }
+
+
 
     void FixedUpdate()
     {
@@ -19,12 +33,14 @@ public class PrefabGenerator : MonoBehaviour
 
             float randX = player.transform.position.x  + Random.Range(-spawnRange, spawnRange);
             float randY = PlayerControl.height + spawnRange + Random.Range(0, spawnRange);
+
+
             int idx = Mathf.FloorToInt(Random.Range(0, prefabList.Length));
-            GameObject prefab = prefabList[idx];
+            //GameObject prefab = prefabList[idx];
 
             vector = new Vector2(randX, randY);
-            GameObject clone = Instantiate(prefab, vector, Quaternion.identity) as GameObject;
-            clones.Add(clone);
+            GameObject clone = Instantiate(ChooseObstacle(), vector, Quaternion.identity) as GameObject;
+            //bag.Add(clone);
             lastCloneHeight += Random.Range(0, spawnRange );
         }
     }
