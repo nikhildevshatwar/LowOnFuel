@@ -8,7 +8,6 @@ public class PrefabGenerator : MonoBehaviour
     public GameObject[] prefabList;
     public GameObject player;
     public float spawnRange;
-    public float interval;
 
     private List<GameObject> clones = new List<GameObject>();
     private Vector2 vector;
@@ -16,7 +15,7 @@ public class PrefabGenerator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PlayerControl.height > lastCloneHeight + spawnRange) {
+        if (PlayerControl.height > lastCloneHeight) {
 
             float randX = player.transform.position.x  + Random.Range(-spawnRange, spawnRange);
             float randY = PlayerControl.height + spawnRange + Random.Range(0, spawnRange);
@@ -26,7 +25,7 @@ public class PrefabGenerator : MonoBehaviour
             vector = new Vector2(randX, randY);
             GameObject clone = Instantiate(prefab, vector, Quaternion.identity) as GameObject;
             clones.Add(clone);
-            lastCloneHeight = randY;
+            lastCloneHeight += Random.Range(0, spawnRange );
         }
     }
 }
