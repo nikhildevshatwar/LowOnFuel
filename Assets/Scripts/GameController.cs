@@ -7,9 +7,13 @@ public class GameController : MonoBehaviour
 {
     public GameObject fuel;
     public GameObject score;
+    public GameObject weight;
 
     private Text text_fuel;
     private Text text_score;
+    private Text text_weight;
+
+
     private int bonus = 0;
     private float maxHeight = 0;
 
@@ -17,6 +21,7 @@ public class GameController : MonoBehaviour
     {
         text_fuel = fuel.GetComponent<UnityEngine.UI.Text>();
         text_score = score.GetComponent<UnityEngine.UI.Text>();
+        text_weight = weight.GetComponent<UnityEngine.UI.Text>();
     }
 
     // Update is called once per frame
@@ -29,5 +34,6 @@ public class GameController : MonoBehaviour
 
         text_fuel.text = "Fuel: " + PlayerControl.fuelLevel.ToString();
         text_score.text = "Score: " + score.ToString();
+        text_weight.text = "Weight: " + PlayerControl.weight.ToString();
     }
 }
