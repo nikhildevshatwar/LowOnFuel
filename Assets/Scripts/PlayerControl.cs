@@ -154,7 +154,7 @@ public class PlayerControl : MonoBehaviour
         if (weight == 5)
         {
             rb.mass = 5;
-            turnSpeed = 20;
+            turnSpeed = 35;
             fuelSpeed = 9;
         }
     }

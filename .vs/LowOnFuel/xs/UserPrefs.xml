@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{D3F6C314-BA69-E23A-DD71-BD96C16B3F51}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AsteroidMovement.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="93" Column="18" />
-      <File FileName="Assets/Scripts/GameController.cs" />
-      <File FileName="Assets/Scripts/PrefabGenerator.cs" Line="11" Column="1" />
-      <File FileName="Assets/Scripts/AsteroidMovement.cs" Line="3" Column="19" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="157" Column="27" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="29" Column="6" />
+      <File FileName="Assets/Scripts/ShipWeaponsSystem.cs" Line="36" Column="2" />
+      <File FileName="Assets/Scripts/PrefabGenerator.cs" Line="38" Column="1" />
+      <File FileName="Assets/Scripts/AsteroidMovement.cs" Line="19" Column="9" />
+      <File FileName="Assets/projectile1Script.cs" Line="13" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ab34317d-2586-40d4-b6d9-6af2259eca20" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="59b20697-3feb-49f5-9014-d29c7b41e0b9" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

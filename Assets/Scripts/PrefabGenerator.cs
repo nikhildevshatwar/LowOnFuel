@@ -7,7 +7,9 @@ public class PrefabGenerator : MonoBehaviour
     // Spawns copies of a prefab as the player gets higher in the level
     public GameObject[] prefabList;
     public GameObject player;
-    public float spawnRange;
+    public float spawnRangeX;
+    public float spawnRangeY;
+    public float clutterY;
 
     private List<GameObject> bag = new List<GameObject>();
     private Vector2 vector;
@@ -31,8 +33,8 @@ public class PrefabGenerator : MonoBehaviour
     {
         if (PlayerControl.height > lastCloneHeight) {
 
-            float randX = player.transform.position.x  + Random.Range(-spawnRange, spawnRange);
-            float randY = PlayerControl.height + spawnRange + Random.Range(0, spawnRange);
+            float randX = player.transform.position.x  + Random.Range(-spawnRangeX, spawnRangeX);
+            float randY = PlayerControl.height + spawnRangeY + Random.Range(0, spawnRangeY);
 
 
             int idx = Mathf.FloorToInt(Random.Range(0, prefabList.Length));
@@ -41,7 +43,7 @@ public class PrefabGenerator : MonoBehaviour
             vector = new Vector2(randX, randY);
             GameObject clone = Instantiate(ChooseObstacle(), vector, Quaternion.identity) as GameObject;
             //bag.Add(clone);
-            lastCloneHeight += Random.Range(0, spawnRange );
+            lastCloneHeight += Random.Range(0, clutterY) ;
         }
     }
 }
