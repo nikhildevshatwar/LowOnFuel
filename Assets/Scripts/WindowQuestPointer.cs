@@ -31,7 +31,7 @@ public class WindowQuestPointer : MonoBehaviour
         float borderSize = 150f;
         Vector3 targetPositionScreenPoint = Camera.main.WorldToScreenPoint(goalTransform.position);
         bool isOffScreen = targetPositionScreenPoint.x <= borderSize || targetPositionScreenPoint.x >= Screen.width - borderSize || targetPositionScreenPoint.y <= borderSize || targetPositionScreenPoint.y >= Screen.height -borderSize;
-        Debug.Log(isOffScreen + " " + targetPositionScreenPoint);
+        //Debug.Log(isOffScreen + " " + targetPositionScreenPoint);
 
         if (isOffScreen)
         {
