@@ -9,7 +9,7 @@ public class PrefabGenerator : MonoBehaviour
     public GameObject player;
     public float spawnRangeX;
     public float spawnRangeY;
-    public float clutterY;
+    public float maxDistanceBetweenAsteroids;
 
     private List<GameObject> bag = new List<GameObject>();
     private Vector2 vector;
@@ -43,7 +43,7 @@ public class PrefabGenerator : MonoBehaviour
             vector = new Vector2(randX, randY);
             GameObject clone = Instantiate(ChooseObstacle(), vector, Quaternion.identity) as GameObject;
             //bag.Add(clone);
-            lastCloneHeight += Random.Range(0, clutterY) ;
+            lastCloneHeight += Random.Range(0, maxDistanceBetweenAsteroids) ;
         }
     }
 }

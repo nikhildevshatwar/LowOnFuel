@@ -16,7 +16,7 @@ public class AsteroidMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         float x = Random.Range(-asteroidAngle, asteroidAngle);
         movement = new Vector2(x, -asteroidSpeed);
-        
+        Destroy(gameObject, 10);
     }
 
     private void FixedUpdate()
