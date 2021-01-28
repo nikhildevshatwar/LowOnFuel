@@ -7,8 +7,8 @@ public class GameController : MonoBehaviour
 {
     private Text text_fuel, text_distance, text_weight, text_payloads;
     private Button btn_shield, btn_weapons, btn_payloads;
-    private GameObject go_shields;
-    private List<GameObject> go_payloads = new List<GameObject>();
+    private GameObject obj_shields, obj_weapons;
+    private List<GameObject> obj_payloads = new List<GameObject>();
 
 
     private int bonus = 0;
@@ -25,11 +25,12 @@ public class GameController : MonoBehaviour
         btn_weapons = GameObject.Find("DropWeaponsButton").GetComponent<UnityEngine.UI.Button>();
         btn_payloads = GameObject.Find("DropPayloadsButton").GetComponent<UnityEngine.UI.Button>();
 
-        go_shields = GameObject.Find("Shields");
+        obj_shields = GameObject.Find("Shields");
+        obj_weapons = GameObject.Find("MissileLauncher");
         foreach(GameObject payload in GameObject.FindGameObjectsWithTag("Payload")) {
-            go_payloads.Add(payload);
+            obj_payloads.Add(payload);
         }
-        text_payloads.text = "Payloads: (" + go_payloads.Count + ")";
+        text_payloads.text = "Payloads: (" + obj_payloads.Count + ")";
     }
 
     // Update is called once per frame
@@ -57,23 +58,30 @@ public class GameController : MonoBehaviour
     public void Drop_Shields() {
         btn_shield.interactable = false;
 
-        Throw_object(go_shields);
-        go_shields = null;
+        Throw_object(obj_shields);
+        obj_shields = null;
+    }
+
+    public void Drop_Weapons() {
+        btn_weapons.interactable = false;
+
+        Throw_object(obj_weapons);
+        obj_weapons = null;
     }
 
     public void Drop_Payloads() {
 
-        if (go_payloads.Count == 0)
+        if (obj_payloads.Count == 0)
             return;
 
-        GameObject payload = go_payloads[0];
-        go_payloads.RemoveAt(0);
+        GameObject payload = obj_payloads[0];
+        obj_payloads.RemoveAt(0);
 
         payload.transform.localScale = new Vector3(3, 3, 1);
         Throw_object(payload);
 
-        text_payloads.text = "Payloads: (" + go_payloads.Count + ")";
-        if (go_payloads.Count == 0) {
+        text_payloads.text = "Payloads: (" + obj_payloads.Count + ")";
+        if (obj_payloads.Count == 0) {
             btn_payloads.interactable = false;
         }
 

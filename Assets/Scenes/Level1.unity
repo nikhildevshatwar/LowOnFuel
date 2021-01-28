@@ -349,7 +349,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f0820b1d90f6a4f4e8c5c19fcb0d0c1d, type: 3}
-  m_Color: {r: 0.27450988, g: 0.9882353, b: 0.13725491, a: 0.1882353}
+  m_Color: {r: 0.27450988, g: 0.9882353, b: 0.13725491, a: 0.43137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 223845911}
   - component: {fileID: 223845913}
   m_Layer: 0
-  m_Name: Base
+  m_Name: Launchpad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -843,8 +843,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c5c0483e9a6881b06bfefe84f650fb9a, type: 3}
-  m_Color: {r: 0.3018868, g: 0.17014869, b: 0.03702385, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ec112b0f860863b3a8792b14be81c7a8, type: 3}
+  m_Color: {r: 0.7264151, g: 0.6544589, b: 0.58250266, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -861,15 +861,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223845910}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.16, z: 0}
-  m_LocalScale: {x: 25.647686, y: 0.25, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.045158714, w: 0.99897987}
+  m_LocalPosition: {x: -2.08, y: 1.37, z: 0}
+  m_LocalScale: {x: 1.4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &223845913
-BoxCollider2D:
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.177}
+--- !u!60 &223845913
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -885,15 +885,23 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 16, y: 9}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -7.98, y: -4.48}
+      - {x: -7.98, y: 0.099999994}
+      - {x: -5.5299997, y: 0.83}
+      - {x: -2.96, y: 1.12}
+      - {x: 0.37547174, y: 0.89485025}
+      - {x: 2.2806222, y: 0.6713068}
+      - {x: 4.5099998, y: 0.11}
+      - {x: 8, y: -1.52}
+      - {x: 7.99, y: -4.48}
 --- !u!1 &225189478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1027,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225189478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 1.445, z: 0}
+  m_LocalPosition: {x: -0.02, y: 3.59, z: 0}
   m_LocalScale: {x: 0.5245098, y: 0.5245098, z: 0.5245098}
   m_Children:
   - {fileID: 1000376607}
@@ -1029,7 +1037,7 @@ Transform:
   - {fileID: 920145262}
   - {fileID: 163761622}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &225189483
 MonoBehaviour:
@@ -1048,9 +1056,6 @@ MonoBehaviour:
   initialFuel: 10000
   fuelSpeed: 1
   turnSpeed: 100
-  shipParts:
-  - {fileID: 1000376606}
-  - {fileID: 920145261}
   thrusters:
   - {fileID: 163761621}
   - {fileID: 194364334}
@@ -1145,7 +1150,7 @@ Transform:
   - {fileID: 1891381477}
   - {fileID: 1605518804}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &438938792
 GameObject:
@@ -1257,10 +1262,11 @@ MonoBehaviour:
   - {fileID: 5033781062911884995, guid: b4effd426c4d8786fb5f4ffb688684a6, type: 3}
   - {fileID: 2484351275665647077, guid: 5bd173a7015c5de29a5a9dcbf5592dfa, type: 3}
   - {fileID: 2155433091566858161, guid: 10796a2529e989ff4876dc5ec5374730, type: 3}
+  - {fileID: 7627469905252953743, guid: fd00412b7fc520133a17918dd439e84a, type: 3}
   player: {fileID: 225189478}
   spawnRangeX: 20
   spawnRangeY: 30
-  maxDistanceBetweenAsteroids: 25
+  maxDistanceBetweenAsteroids: 15
 --- !u!4 &446165300
 Transform:
   m_ObjectHideFlags: 0
@@ -1273,7 +1279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &446165301
 MonoBehaviour:
@@ -1386,7 +1392,7 @@ Transform:
   - {fileID: 145917741}
   - {fileID: 204110775}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &621867826
 PrefabInstance:
@@ -1757,7 +1763,7 @@ GameObject:
   - component: {fileID: 920145263}
   - component: {fileID: 920145264}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: MissileLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1816,7 +1822,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 17918b6c0b5d343d8b009ef8ddb9f53d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2010,7 +2016,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 446165301}
         m_MethodName: Drop_Shields
         m_Mode: 1
@@ -2632,7 +2638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422593413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 100, z: 0}
+  m_LocalPosition: {x: 25, y: 112, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 42269310}
@@ -2809,7 +2815,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 446165301}
         m_MethodName: Drop_Payloads
         m_Mode: 1
@@ -2942,6 +2948,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 225189483}
         m_MethodName: DropWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 446165301}
+        m_MethodName: Drop_Weapons
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

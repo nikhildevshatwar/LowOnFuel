@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0679adc15a684442e8bf7cc0b9efc1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidSpeed: 0
-  asteroidAngle: 10
+  asteroidSpeed: 3
+  asteroidAngle: 3
 --- !u!58 &520087496097817464
 CircleCollider2D:
   m_ObjectHideFlags: 0

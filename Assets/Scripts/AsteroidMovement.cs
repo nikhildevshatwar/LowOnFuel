@@ -24,17 +24,6 @@ public class AsteroidMovement : MonoBehaviour
         rb.AddForce(movement);
     }
 
-    private void Update()
-    { /* BROKEN CODE BROKEN CODE BROKEN CODE
-        playerHeight = PlayerControl.height;
-        yLocation = gameObject.transform.position.y;
-
-        if(yLocation < (playerHeight - 20))
-        {
-            Destroy(gameObject);
-        } */
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("missile"))

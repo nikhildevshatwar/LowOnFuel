@@ -13,9 +13,6 @@ public class PlayerControl : MonoBehaviour
     public float initialFuel;
     public float fuelSpeed;
     public float turnSpeed;
-
-    public GameObject[] shipParts;
-
     public static int weight;
 
     [SerializeField]
@@ -73,6 +70,11 @@ public class PlayerControl : MonoBehaviour
             thrusters[0].SetActive(false);
         }
 
+        if (fuelLevel < 0) {
+            fuelLevel = 0;
+            Debug.Log("Fuel Over, Keep less stuff to fly more");
+        }
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(Vector3.forward * turnSpeed * Time.deltaTime);
@@ -92,7 +94,6 @@ public class PlayerControl : MonoBehaviour
     {
         weight-=2;
         setWeight();
-        shipParts[0].SetActive(false);
     }
 
     public void DropWeapon()
@@ -100,7 +101,6 @@ public class PlayerControl : MonoBehaviour
         DisableWeapons();
         weight-=2;
         setWeight();
-        shipParts[1].SetActive(false);
     }
 
     void DisableWeapons()

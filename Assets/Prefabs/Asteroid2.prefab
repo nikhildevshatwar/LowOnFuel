@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1105721612}
   - component: {fileID: 4942334259972061184}
   m_Layer: 0
-  m_Name: Asteroid 2
+  m_Name: Asteroid2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0679adc15a684442e8bf7cc0b9efc1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidSpeed: 1
-  asteroidAngle: 10
+  asteroidSpeed: 3
+  asteroidAngle: 3
 --- !u!58 &4942334259972061184
 CircleCollider2D:
   m_ObjectHideFlags: 0
