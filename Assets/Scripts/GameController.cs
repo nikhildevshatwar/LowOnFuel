@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class GameController : MonoBehaviour
 
     private static GameController _instance;
     public static GameController Instance {  get { return _instance; } }
-    
+    public static int levelNum = 1;
 
     private int bonus = 0;
     private float maxHeight = 0;
@@ -149,9 +150,12 @@ public class GameController : MonoBehaviour
         text_endscreenTotal.text = "Level Total: " + (PlayerControl.fuelLevel + (obj_payloads.Count * 10000f));
     }
 
-    void LoadNextLevel()
+    public void LoadNextLevel()
     {
-        endScreenParent.SetActive(false);
+        levelNum++;
+        string scene = "Level" + levelNum;
+        Debug.Log("Loading scene " + scene);
+        SceneManager.LoadScene(scene);
     }
 
 
