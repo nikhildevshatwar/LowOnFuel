@@ -29,6 +29,8 @@ public class ShipWeaponsSystem : MonoBehaviour
             // Give the cloned object an initial velocity along the current
             // object's Z axis
             clone.velocity = transform.TransformDirection(Vector2.up * 40);
+
+            AudioManager.Instance.Play("fire");
         }
     }
 

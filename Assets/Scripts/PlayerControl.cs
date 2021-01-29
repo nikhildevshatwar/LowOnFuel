@@ -15,6 +15,10 @@ public class PlayerControl : MonoBehaviour
     public float turnSpeed;
     public static int weight;
 
+    public AudioSource JetStart;
+    public AudioSource JetLoop;
+    private bool startedLoop;
+
     [SerializeField]
     private GameObject[] thrusters; //0 is main, 1 is left, 2 right thruster
 
@@ -40,7 +44,15 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space) && fuelLevel > 0)
+        {
+            EngineSound();
+        }
+        if (Input.GetKeyUp(KeyCode.Space) && fuelLevel > 0)
+        {
+            EngineSoundEnd();
+        }
+
         height = transform.position.y;
     }
 
@@ -52,6 +64,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && fuelLevel > 0)
         { //main thrusters
+            
             rb.AddRelativeForce(new Vector2(0, mainThrust));
             fuelLevel -= fuelSpeed;
             rb.drag = 0.5f;  //set flying drag
@@ -92,14 +105,22 @@ public class PlayerControl : MonoBehaviour
 
     public void DropShielding()
     {
-        weight-=2;
+        AudioManager.Instance.Play("drop");
+        if (weight > 0)
+        {
+            weight -= 2;
+        }
         setWeight();
     }
 
     public void DropWeapon()
     {
+        AudioManager.Instance.Play("drop");
         DisableWeapons();
-        weight-=2;
+        if (weight > 0)
+        {
+            weight -= 2;
+        }
         setWeight();
     }
 
@@ -110,16 +131,23 @@ public class PlayerControl : MonoBehaviour
 
     public void DropMainThruster()
     {
+        AudioManager.Instance.Play("drop");
         mainThrust = 5;
-        weight--;
+        if (weight > 0)
+        {
+            weight--;
+        }
         setWeight();
 
     }
 
     public void DropSteeringThrusters()
     {
-        
-        weight--;
+        AudioManager.Instance.Play("drop");
+        if (weight > 0)
+        {
+            weight--;
+        }
         setWeight();
         turnSpeed = turnSpeed / 2;
     }
@@ -158,5 +186,19 @@ public class PlayerControl : MonoBehaviour
             fuelSpeed = 9;
         }
     }
+
+    void EngineSound()
+    {
+        JetStart.PlayOneShot(JetStart.clip, 1f);
+        JetLoop.PlayDelayed(JetStart.clip.length);
+    }
+
+    void EngineSoundEnd()
+    {
+        JetLoop.Stop();
+        AudioManager.Instance.Play("JetEnd");
+    }
+
+
     
 }
