@@ -6,6 +6,7 @@ TagManager:
   tags:
   - missile
   - Payload
+  - ItemWithDamage
   layers:
   - Default
   - TransparentFX

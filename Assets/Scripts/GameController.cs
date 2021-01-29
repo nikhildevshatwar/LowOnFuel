@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public float missileDamage;
+
     private Text text_fuel, text_distance, text_weight, text_payloads;
     private Button btn_shield, btn_weapons, btn_radar, btn_payloads;
     private GameObject obj_shields, obj_weapons, obj_radar, obj_radarcam;

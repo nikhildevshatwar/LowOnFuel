@@ -8,8 +8,6 @@ public class ShipWeaponsSystem : MonoBehaviour
     public Transform projectileSpawnPoint;
     public Rigidbody2D projectile1;
 
-    
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))

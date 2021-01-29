@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     public float fuelSpeed;
     public float turnSpeed;
     public static int weight;
+    public int totalHealth;
 
     public AudioSource JetStart;
     public AudioSource JetLoop;
@@ -29,12 +30,18 @@ public class PlayerControl : MonoBehaviour
     public static float height;
     private Rigidbody2D rb;
 
+    private bool shield_active;
+    private int health;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         fuelLevel = initialFuel;
         weight = startWeight;
         setWeight();
+
+        shield_active = true;
+        health = totalHealth;
     }
 
     void FixedUpdate()
@@ -90,14 +97,14 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Rotate(Vector3.forward * turnSpeed * Time.deltaTime);
+            rb.AddTorque(turnSpeed);
             thrusters[1].SetActive(true);
         }
         else { thrusters[1].SetActive(false); }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Rotate(Vector3.forward * -turnSpeed * Time.deltaTime);
+            rb.AddTorque(-turnSpeed);
             thrusters[2].SetActive(true);
         }
         else { thrusters[2].SetActive(false); }
@@ -209,6 +216,21 @@ public class PlayerControl : MonoBehaviour
         AudioManager.Instance.Play("JetEnd");
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ItemWithDamage"))
+        {
+            if (!shield_active) {
+                print("Rocket was hit!");
+                Destroy(collision.gameObject);
+                health -= 1;
+            } else {
+                print("Shield saved from hit!");
+            }
+        }
 
-    
+        if (health == 0) {
+            Destroy(this);
+        }
+    }    
 }

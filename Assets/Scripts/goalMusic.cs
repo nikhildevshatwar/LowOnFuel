@@ -22,9 +22,7 @@ public class goalMusic : MonoBehaviour
     {
         float dist = Vector3.Distance(rocket.position, goal.position);
         distProgress = dist / startingDist;
-        print(distProgress);
         goalAudioLoop.volume = .7f - distProgress;
-
     }
 
 }
