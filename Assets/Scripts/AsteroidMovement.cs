@@ -16,6 +16,7 @@ public class AsteroidMovement : MonoBehaviour
     private float yLocation;
     private float playerHeight;
     private float health ;
+    public GameObject particleDestruction;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class AsteroidMovement : MonoBehaviour
             Object.Destroy(collision.gameObject, 0.0f);
             health -= GameController.Instance.missileDamage;
             if (health <= 0) {
+                Instantiate(particleDestruction, gameObject.transform.position, Quaternion.identity);
                 Object.Destroy(gameObject, 0.0f);
             } else {
                 healthBar.fillAmount = health / totalHealth;

@@ -123,6 +123,8 @@ MonoBehaviour:
   asteroidAngle: 0
   totalHealth: 10
   healthBar: {fileID: 1212922629307372992}
+  particleDestruction: {fileID: 7128093816506240272, guid: 4335b228eb805488f81d9aa763accc8a,
+    type: 3}
 --- !u!58 &520087496097817464
 CircleCollider2D:
   m_ObjectHideFlags: 0

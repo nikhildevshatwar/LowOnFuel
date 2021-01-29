@@ -16,6 +16,10 @@ public class PlayerControl : MonoBehaviour
     public static int weight;
     public int totalHealth;
 
+    public GameObject trailParticle;
+    private ParticleSystem trailPS;
+    ParticleSystem.EmissionModule EM;
+
     public AudioSource JetStart;
     public AudioSource JetLoop;
     private bool startedLoop;
@@ -39,6 +43,8 @@ public class PlayerControl : MonoBehaviour
         fuelLevel = initialFuel;
         weight = startWeight;
         setWeight();
+        EM = trailParticle.GetComponent<ParticleSystem>().emission;
+
 
         shield_active = true;
         health = totalHealth;
@@ -53,11 +59,13 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && fuelLevel > 0)
         {
+            EM.rateOverTime = 8;
             EngineSound();
         }
         if (Input.GetKeyUp(KeyCode.Space) && fuelLevel > 0)
         {
             EngineSoundEnd();
+            EM.rateOverTime = 0;
         }
 
         height = transform.position.y;
