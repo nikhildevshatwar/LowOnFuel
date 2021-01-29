@@ -7,6 +7,15 @@ public class GameController : MonoBehaviour
 {
     public float missileDamage;
 
+    public Transform rocket;
+    public Transform goal;
+    public float goalCompleteDist = 2;
+    public GameObject endScreenParent;
+
+    public Text text_endscreenPayload;
+    public Text text_endscreenFuel;
+    public Text text_endscreenTotal;
+
     private Text text_fuel, text_distance, text_weight, text_payloads;
     private Button btn_shield, btn_weapons, btn_radar, btn_payloads;
     private GameObject obj_shields, obj_weapons, obj_radar, obj_radarcam;
@@ -14,6 +23,7 @@ public class GameController : MonoBehaviour
 
     private static GameController _instance;
     public static GameController Instance {  get { return _instance; } }
+    
 
     private int bonus = 0;
     private float maxHeight = 0;
@@ -38,6 +48,8 @@ public class GameController : MonoBehaviour
         text_weight = GameObject.Find("Weight").GetComponent<UnityEngine.UI.Text>();
         text_payloads = GameObject.Find("PayloadText").GetComponent<UnityEngine.UI.Text>();
 
+        
+
         btn_shield = GameObject.Find("DropShieldingButton").GetComponent<UnityEngine.UI.Button>();
         btn_weapons = GameObject.Find("DropWeaponsButton").GetComponent<UnityEngine.UI.Button>();
         btn_radar = GameObject.Find("DropRadarButton").GetComponent<UnityEngine.UI.Button>();
@@ -51,6 +63,8 @@ public class GameController : MonoBehaviour
             obj_payloads.Add(payload);
         }
         text_payloads.text = "Payloads: (" + obj_payloads.Count + ")";
+
+        
     }
 
     // Update is called once per frame
@@ -64,6 +78,13 @@ public class GameController : MonoBehaviour
         text_fuel.text = "Fuel: " + PlayerControl.fuelLevel.ToString();
         text_distance.text = "Distance: " + score.ToString();
         text_weight.text = "Weight: " + PlayerControl.weight.ToString();
+
+        float dist = Vector3.Distance(rocket.position, goal.position);
+        if (dist < goalCompleteDist)
+        {
+            FinishLevel();
+        }
+
     }
 
     void Throw_object(GameObject obj) {
@@ -118,4 +139,21 @@ public class GameController : MonoBehaviour
         }
 
     }
+
+    void FinishLevel()
+    {
+        endScreenParent.SetActive(true);
+        Time.timeScale = .1f;
+        text_endscreenFuel.text = "Fuel Bonus: " + PlayerControl.fuelLevel;
+        text_endscreenPayload.text = "Payloads Delivered: " + obj_payloads.Count;
+        text_endscreenTotal.text = "Level Total: " + (PlayerControl.fuelLevel + (obj_payloads.Count * 10000f));
+    }
+
+    void LoadNextLevel()
+    {
+        endScreenParent.SetActive(false);
+    }
+
+
+
 }

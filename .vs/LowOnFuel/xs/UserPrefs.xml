@@ -1,20 +1,21 @@
 ﻿<Properties StartupConfiguration="{D3F6C314-BA69-E23A-DD71-BD96C16B3F51}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ReachGoal.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerControl.cs" Line="163" Column="10" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="15" Column="73" />
-      <File FileName="Assets/Scripts/ShipWeaponsSystem.cs" Line="33" Column="48" />
-      <File FileName="Assets/Scripts/PrefabGenerator.cs" Line="46" Column="75" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="15" Column="45" />
+      <File FileName="Assets/Scripts/ShipWeaponsSystem.cs" />
+      <File FileName="Assets/Scripts/PrefabGenerator.cs" />
       <File FileName="Assets/Scripts/AsteroidMovement.cs" />
-      <File FileName="Assets/Scripts/WindowQuestPointer.cs" Line="43" Column="1" />
-      <File FileName="Assets/Scripts/Sound.cs" Line="14" Column="26" />
-      <File FileName="Assets/Scripts/AudioManager.cs" Line="45" Column="25" />
-      <File FileName="Assets/Scripts/goalMusic.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/WindowQuestPointer.cs" />
+      <File FileName="Assets/Scripts/Sound.cs" />
+      <File FileName="Assets/Scripts/AudioManager.cs" />
+      <File FileName="Assets/Scripts/goalMusic.cs" Line="21" Column="5" />
+      <File FileName="Assets/Scripts/ReachGoal.cs" Line="7" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="06e4fe3e-0083-4c58-b69a-f7fc7b79d3f9" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="99f09640-bbf3-4dca-b85f-3165a7a2eff2" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
