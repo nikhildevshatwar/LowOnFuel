@@ -10,9 +10,25 @@ public class GameController : MonoBehaviour
     private GameObject obj_shields, obj_weapons;
     private List<GameObject> obj_payloads = new List<GameObject>();
 
+    private static GameController _instance;
+
+    public static GameController Instance {  get { return _instance; } }
 
     private int bonus = 0;
     private float maxHeight = 0;
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
