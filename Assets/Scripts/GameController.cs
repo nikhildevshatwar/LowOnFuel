@@ -153,11 +153,9 @@ public class GameController : MonoBehaviour
 
     public void LoadNextLevel()
     {
-
         levelNum++;
         string scene = "Level" + levelNum;
         Debug.Log("Loading scene " + scene);
-
         SceneManager.LoadScene(scene);
     }
 
