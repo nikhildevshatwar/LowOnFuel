@@ -124,6 +124,16 @@ public class PlayerControl : MonoBehaviour
         setWeight();
     }
 
+    public void DropRadar()
+    {
+        AudioManager.Instance.Play("drop");
+        if (weight > 0)
+        {
+            weight -= 2;
+        }
+        setWeight();
+    }
+
     void DisableWeapons()
     {
         //to do 

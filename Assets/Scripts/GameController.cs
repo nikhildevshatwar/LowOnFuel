@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     private Text text_fuel, text_distance, text_weight, text_payloads;
-    private Button btn_shield, btn_weapons, btn_payloads;
-    private GameObject obj_shields, obj_weapons;
+    private Button btn_shield, btn_weapons, btn_radar, btn_payloads;
+    private GameObject obj_shields, obj_weapons, obj_radar, obj_radarcam;
     private List<GameObject> obj_payloads = new List<GameObject>();
 
     private static GameController _instance;
-
     public static GameController Instance {  get { return _instance; } }
 
     private int bonus = 0;
@@ -39,8 +38,11 @@ public class GameController : MonoBehaviour
 
         btn_shield = GameObject.Find("DropShieldingButton").GetComponent<UnityEngine.UI.Button>();
         btn_weapons = GameObject.Find("DropWeaponsButton").GetComponent<UnityEngine.UI.Button>();
+        btn_radar = GameObject.Find("DropRadarButton").GetComponent<UnityEngine.UI.Button>();
         btn_payloads = GameObject.Find("DropPayloadsButton").GetComponent<UnityEngine.UI.Button>();
 
+        obj_radarcam = GameObject.Find("RadarCanvas");
+        obj_radar = GameObject.Find("Radar");
         obj_shields = GameObject.Find("Shields");
         obj_weapons = GameObject.Find("MissileLauncher");
         foreach(GameObject payload in GameObject.FindGameObjectsWithTag("Payload")) {
@@ -72,6 +74,7 @@ public class GameController : MonoBehaviour
     }
 
     public void Drop_Shields() {
+        AudioManager.Instance.Play("click");
         btn_shield.interactable = false;
 
         Throw_object(obj_shields);
@@ -79,10 +82,20 @@ public class GameController : MonoBehaviour
     }
 
     public void Drop_Weapons() {
+        AudioManager.Instance.Play("click");
         btn_weapons.interactable = false;
 
         Throw_object(obj_weapons);
         obj_weapons = null;
+    }
+
+    public void Drop_Radar() {
+        AudioManager.Instance.Play("click");
+        btn_radar.interactable = false;
+
+        Throw_object(obj_radar);
+        obj_radar = null;
+        obj_radarcam.SetActive(false);
     }
 
     public void Drop_Payloads() {
@@ -90,6 +103,7 @@ public class GameController : MonoBehaviour
         if (obj_payloads.Count == 0)
             return;
 
+        AudioManager.Instance.Play("click");
         GameObject payload = obj_payloads[0];
         obj_payloads.RemoveAt(0);
 
