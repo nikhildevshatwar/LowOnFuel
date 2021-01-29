@@ -10,7 +10,7 @@ public class ShipWeaponsSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
@@ -18,7 +18,7 @@ public class ShipWeaponsSystem : MonoBehaviour
 
     void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             // Instantiate the projectile at the position and rotation of this transform
             Rigidbody2D clone;

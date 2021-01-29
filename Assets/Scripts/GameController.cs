@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public Text text_endscreenPayload;
     public Text text_endscreenFuel;
     public Text text_endscreenTotal;
+    public Text text_endscreenGameTotal;
 
     private Text text_fuel, text_distance, text_weight, text_payloads;
     private Button btn_shield, btn_weapons, btn_radar, btn_payloads;
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour
     private static GameController _instance;
     public static GameController Instance {  get { return _instance; } }
     public static int levelNum = 1;
+    public static float prevScore = 0;
 
     private int bonus = 0;
     private float maxHeight = 0;
@@ -39,7 +41,6 @@ public class GameController : MonoBehaviour
         {
             _instance = this;
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -48,8 +49,6 @@ public class GameController : MonoBehaviour
         text_distance = GameObject.Find("Distance").GetComponent<UnityEngine.UI.Text>();
         text_weight = GameObject.Find("Weight").GetComponent<UnityEngine.UI.Text>();
         text_payloads = GameObject.Find("PayloadText").GetComponent<UnityEngine.UI.Text>();
-
-        
 
         btn_shield = GameObject.Find("DropShieldingButton").GetComponent<UnityEngine.UI.Button>();
         btn_weapons = GameObject.Find("DropWeaponsButton").GetComponent<UnityEngine.UI.Button>();
@@ -143,18 +142,22 @@ public class GameController : MonoBehaviour
 
     void FinishLevel()
     {
+        float score = (PlayerControl.fuelLevel + (obj_payloads.Count * 10000f));
         endScreenParent.SetActive(true);
-        Time.timeScale = .1f;
         text_endscreenFuel.text = "Fuel Bonus: " + PlayerControl.fuelLevel;
         text_endscreenPayload.text = "Payloads Delivered: " + obj_payloads.Count;
-        text_endscreenTotal.text = "Level Total: " + (PlayerControl.fuelLevel + (obj_payloads.Count * 10000f));
+        text_endscreenTotal.text = "Score this level: " + score;
+        text_endscreenGameTotal.text = "Total Score: " + (prevScore + score);
+        prevScore += score;
     }
 
     public void LoadNextLevel()
     {
+
         levelNum++;
         string scene = "Level" + levelNum;
         Debug.Log("Loading scene " + scene);
+
         SceneManager.LoadScene(scene);
     }
 

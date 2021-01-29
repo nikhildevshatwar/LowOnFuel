@@ -54,12 +54,12 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && fuelLevel > 0)
+        if (Input.GetKeyDown(KeyCode.W) && fuelLevel > 0)
         {
             EM.rateOverTime = 8;
             EngineSound();
         }
-        if (Input.GetKeyUp(KeyCode.Space) && fuelLevel > 0)
+        if (Input.GetKeyUp(KeyCode.W) && fuelLevel > 0)
         {
             EngineSoundEnd();
             EM.rateOverTime = 0;
@@ -74,7 +74,7 @@ public class PlayerControl : MonoBehaviour
 
     void Movement()
     {
-        if (Input.GetKey(KeyCode.Space) && fuelLevel > 0)
+        if (Input.GetKey(KeyCode.W) && fuelLevel > 0)
         { //main thrusters
             
             rb.AddRelativeForce(new Vector2(0, mainThrust));
@@ -92,7 +92,7 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Fuel Over, Keep less stuff to fly more");
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             rb.AddTorque(turnSpeed);
             thrusters[1].SetActive(true);
@@ -102,7 +102,7 @@ public class PlayerControl : MonoBehaviour
             thrusters[1].SetActive(false);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             rb.AddTorque(-turnSpeed);
             thrusters[2].SetActive(true);

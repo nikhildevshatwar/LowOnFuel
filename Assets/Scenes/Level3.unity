@@ -1211,6 +1211,7 @@ MonoBehaviour:
   text_endscreenPayload: {fileID: 4522497230215458895}
   text_endscreenFuel: {fileID: 4522497231099358549}
   text_endscreenTotal: {fileID: 4522497230197108551}
+  text_endscreenGameTotal: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,7 +2932,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c3089b47ddc4408f91d267babb4e321, type: 2}
+  - {fileID: 2100000, guid: d9c397bdbc46e49ee9b0a43517f52b31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3461,12 +3462,12 @@ PrefabInstance:
     - target: {fileID: 1814789823587875612, guid: 28769effed4834957b68dc4ee06f5671,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25
+      value: -135
       objectReference: {fileID: 0}
     - target: {fileID: 1814789823587875612, guid: 28769effed4834957b68dc4ee06f5671,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 112
+      value: 285
       objectReference: {fileID: 0}
     - target: {fileID: 1814789823587875612, guid: 28769effed4834957b68dc4ee06f5671,
         type: 3}
@@ -3548,11 +3549,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2352246145524134936, guid: 6915d01f2971b477289dcee32c368b89,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2352246145606292268, guid: 6915d01f2971b477289dcee32c368b89,
         type: 3}
       propertyPath: m_Name
