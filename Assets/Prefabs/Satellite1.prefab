@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2155433091566858163}
   - component: {fileID: 5576870415492988320}
   - component: {fileID: 5576870415492988322}
-  - component: {fileID: 4931155979796363549}
+  - component: {fileID: 382317761849591932}
   m_Layer: 0
   m_Name: Satellite1
   m_TagString: ItemWithDamage
@@ -125,8 +125,8 @@ MonoBehaviour:
   healthBar: {fileID: 8143957316714057921}
   particleDestruction: {fileID: 485944388651084950, guid: 940cbf7bbb84f413fa1870f91a9b042d,
     type: 3}
---- !u!58 &4931155979796363549
-CircleCollider2D:
+--- !u!60 &382317761849591932
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,8 +139,29 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.48
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 21.939999, y: 10.380791}
+    newSize: {x: 3.86, y: 3.82}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.5499998, y: -2.220169}
+      - {x: 1.42, y: -3.1702416}
+      - {x: -0.46999997, y: -3.3502553}
+      - {x: -0.76, y: -2.6101987}
+      - {x: -7.2199993, y: -1.8701425}
+      - {x: -6.8899994, y: 0.88006705}
+      - {x: -0.46999997, y: 0.30002284}
+      - {x: -0.68999994, y: 2.9202223}
+      - {x: 1.8299998, y: 3.2102447}
+      - {x: 1.8699999, y: 0.45003426}
+      - {x: 7.93, y: 0.08000609}
+      - {x: 7.8099995, y: -2.5401936}
 --- !u!1 &2155433092821962234
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 414}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7866066101287530916

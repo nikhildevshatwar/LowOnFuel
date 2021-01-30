@@ -134,7 +134,7 @@ public class PlayerControl : MonoBehaviour
 
     void DisableWeapons()
     {
-        //to do 
+        GameObject.Find("Rocket").GetComponent<ShipWeaponsSystem>().enabled = false;
     }
 
     public void DropPayload()

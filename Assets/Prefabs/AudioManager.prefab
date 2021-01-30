@@ -69,16 +69,10 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  - name: hover
-    clip: {fileID: 8300000, guid: b9109236268e24c8bbd30da707510ce3, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-    loop: 0
   - name: click
     clip: {fileID: 8300000, guid: f3ea7cc7cd6cd4d4cab4e4d09b1d7a7e, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 1.5
+    pitch: 0
     source: {fileID: 0}
     loop: 0
 --- !u!1 &8473861825734081582
@@ -92,7 +86,6 @@ GameObject:
   - component: {fileID: 8473861825734081583}
   - component: {fileID: 8473861825734081568}
   - component: {fileID: 8473861825734081569}
-  - component: {fileID: 8473861825734081570}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -306,18 +299,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8473861825734081570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8473861825734081582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c79817312432546b4a14cb959afbd490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goal: {fileID: 0}
-  rocket: {fileID: 0}
-  goalAudioLoop: {fileID: 8473861825734081569}

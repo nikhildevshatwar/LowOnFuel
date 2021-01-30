@@ -6,7 +6,7 @@ public class ShipWeaponsSystem : MonoBehaviour
 {
   
     public Transform projectileSpawnPoint;
-    public Rigidbody2D projectile1;
+    public GameObject projectile;
 
     private void Update()
     {
@@ -16,17 +16,21 @@ public class ShipWeaponsSystem : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        projectileSpawnPoint = GameObject.Find("BulletSpawnPoint").transform;
+    }
+
     void Shoot()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Instantiate the projectile at the position and rotation of this transform
-            Rigidbody2D clone;
-            clone = Instantiate(projectile1, projectileSpawnPoint.transform.position, projectileSpawnPoint.transform.rotation);
+            GameObject clone;
+            clone = Instantiate(projectile, projectileSpawnPoint.transform.position, projectileSpawnPoint.transform.rotation);
 
             // Give the cloned object an initial velocity along the current
-            // object's Z axis
-            clone.velocity = transform.TransformDirection(Vector2.up * 40);
+            clone.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(Vector2.up * 40);
 
             AudioManager.Instance.Play("fire");
         }

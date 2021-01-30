@@ -11,14 +11,15 @@ public enum FollowModeType
 
 public class FollowObject : MonoBehaviour
 {
-    public GameObject target;
-    public FollowModeType followMode;
+    public FollowModeType followMode = FollowModeType.ALL;
+    private GameObject rocket;
 
     private Vector3 offset;
 
     void Start()
     {
-        offset = transform.position - target.transform.position;
+        rocket = GameObject.Find("Rocket");
+        offset = transform.position - rocket.transform.position;
     }
 
     void Update()
@@ -26,14 +27,14 @@ public class FollowObject : MonoBehaviour
         switch (followMode)
         {
             case FollowModeType.X_ONLY:
-                transform.position = new Vector2(target.transform.position.x + offset.x, transform.position.y);
+                transform.position = new Vector2(rocket.transform.position.x + offset.x, transform.position.y);
                 break;
             case FollowModeType.Y_ONLY:
-                transform.position = new Vector2(transform.position.x, target.transform.position.y + offset.y);
+                transform.position = new Vector2(transform.position.x, rocket.transform.position.y + offset.y);
                 break;
             case FollowModeType.ALL:
             default:
-                transform.position = target.transform.position + offset;
+                transform.position = rocket.transform.position + offset;
                 break;
         }
     }

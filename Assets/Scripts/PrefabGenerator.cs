@@ -6,7 +6,6 @@ public class PrefabGenerator : MonoBehaviour
 {
     // Spawns copies of a prefab as the player gets higher in the level
     public GameObject[] prefabList;
-    public GameObject player;
     public float spawnRangeX;
     public float spawnRangeY;
     public float maxDistanceBetweenAsteroids;
@@ -14,7 +13,13 @@ public class PrefabGenerator : MonoBehaviour
     private List<GameObject> bag = new List<GameObject>();
     private Vector2 vector;
     private float lastCloneHeight = 0;
+    private GameObject rocket;
 
+    void Start()
+    {
+                rocket = GameObject.Find("Rocket");
+    }
+    
     public GameObject ChooseObstacle()
     {
         if (bag.Count == 0)
@@ -31,10 +36,10 @@ public class PrefabGenerator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PlayerControl.height > lastCloneHeight) {
+        if (rocket.transform.position.y > lastCloneHeight) {
 
-            float randX = player.transform.position.x  + Random.Range(-spawnRangeX, spawnRangeX);
-            float randY = PlayerControl.height + spawnRangeY + Random.Range(0, spawnRangeY);
+            float randX = rocket.transform.position.x  + Random.Range(-spawnRangeX, spawnRangeX);
+            float randY = rocket.transform.position.y + spawnRangeY + Random.Range(0, spawnRangeY);
 
 
             int idx = Mathf.FloorToInt(Random.Range(0, prefabList.Length));

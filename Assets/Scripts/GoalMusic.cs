@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class goalMusic : MonoBehaviour
+public class GoalMusic : MonoBehaviour
 {
-    public Transform goal;
-    public Transform rocket;
+    private Transform rocket;
+    private Transform goal;
 
     private float startingDist;
     private float distProgress;
@@ -14,6 +14,8 @@ public class goalMusic : MonoBehaviour
 
     private void Start()
     {
+        rocket = GameObject.Find("Rocket").transform;
+        goal = GameObject.Find("Goal").transform;
         startingDist = Vector3.Distance(rocket.position, goal.position);
         goalAudioLoop.volume = 0;
     }

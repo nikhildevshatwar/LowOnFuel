@@ -6,17 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public float missileDamage;
-
-    public Transform rocket;
-    public Transform goal;
-    public float goalCompleteDist = 2;
+    public float missileDamage = 20;
     public GameObject endScreenParent;
 
-    public Text text_endscreenPayload;
-    public Text text_endscreenFuel;
-    public Text text_endscreenTotal;
-    public Text text_endscreenGameTotal;
+    private Transform rocket;
+    private Transform goal;
+
+    private Text text_endscreenPayload;
+    private Text text_endscreenFuel;
+    private Text text_endscreenTotal;
+    private Text text_endscreenGameTotal;
 
     private Text text_fuel, text_distance, text_weight, text_payloads;
     private Button btn_shield, btn_weapons, btn_radar, btn_payloads;
@@ -30,6 +29,7 @@ public class GameController : MonoBehaviour
 
     private int bonus = 0;
     private float maxHeight = 0;
+    private float goalCompleteDist = 20;
 
     private void Awake()
     {
@@ -45,6 +45,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        rocket = GameObject.Find("Rocket").transform;
+        goal = GameObject.Find("Goal").transform;
+
         text_fuel = GameObject.Find("Fuel").GetComponent<UnityEngine.UI.Text>();
         text_distance = GameObject.Find("Distance").GetComponent<UnityEngine.UI.Text>();
         text_weight = GameObject.Find("Weight").GetComponent<UnityEngine.UI.Text>();
@@ -142,8 +145,15 @@ public class GameController : MonoBehaviour
 
     void FinishLevel()
     {
-        float score = (PlayerControl.fuelLevel + (obj_payloads.Count * 10000f));
+        if (endScreenParent.activeSelf) {
+            return;
+        }
         endScreenParent.SetActive(true);
+        float score = (PlayerControl.fuelLevel + (obj_payloads.Count * 10000f));
+        text_endscreenPayload = GameObject.Find("PayloadsDeliveredText").GetComponent<UnityEngine.UI.Text>();
+        text_endscreenFuel = GameObject.Find("RemainingFuelBonus").GetComponent<UnityEngine.UI.Text>();
+        text_endscreenTotal = GameObject.Find("LevelTotal").GetComponent<UnityEngine.UI.Text>();
+        text_endscreenGameTotal = GameObject.Find("GameTotal").GetComponent<UnityEngine.UI.Text>();
         text_endscreenFuel.text = "Fuel Bonus: " + PlayerControl.fuelLevel;
         text_endscreenPayload.text = "Payloads Delivered: " + obj_payloads.Count;
         text_endscreenTotal.text = "Score this level: " + score;
@@ -153,10 +163,7 @@ public class GameController : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        levelNum++;
-        string scene = "Level" + levelNum;
-        Debug.Log("Loading scene " + scene);
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 
